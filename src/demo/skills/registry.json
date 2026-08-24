@@ -1,0 +1,16 @@
+{
+  "skills": {
+    "wind": {
+      "module": "skills.wind_skill",
+      "tool": "get_wind_kline_1y",
+      "enabled": true,
+      "description": "万得全A近1年K线查询"
+    },
+    "sse_calendar": {
+      "module": "skills.sse_calendar_skill",
+      "tool": "get_sse_trading_days",
+      "enabled": true,
+      "description": "上交所交易日历查询"
+    }
+  }
+}
