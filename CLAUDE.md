@@ -17,6 +17,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `book_packager` → `src/book_packager/graph.py:graph` — 发布包装，书名/简介/章节标题/金句
 - `idea_generator` → `src/idea_generator/graph.py:graph` — 创意生成，高概念选题 + 卖点分析
 - `director` → `src/director/graph.py:graph` — 一键串联导演，对话式调度全部创作 Agent 从目标到成书
+- `setting_studio` → `src/setting_studio/graph.py:graph` — 设定深化工作台，项目设定库 + 时间线/描写卡/冲突推演
 
 ## 常用命令
 
@@ -113,6 +114,13 @@ pip install -e . "langgraph-cli[inmem]"
 - **场景级重写**：`scene_rewrite.py` reader FAIL 时定位问题场景只重写局部（split→locate→rewrite），替代整章重写
 - **番茄风格**：`fanqie_style/guide.py` 内置指南（开篇即炸/高频爽点/短句快节奏），`profile.py` 用户样本风格提取；写作默认注入，`style_mode="generic"` 可关闭
 - **每章字数控制**：`chapter_targets` 逐章目标 [{min_words,max_words}]，写前注入 contract、大章节自动调高 max_tokens、写后 `word_check.py` 迭代压缩/扩写（±15%容差），默认番茄 2000-2200
+
+### setting_studio 图（设定深化工作台）
+- **项目设定库**：`project_store.py` SQLite（`output/projects/<pid>.db`），板块 world/characters/relationships/timeline/conflicts/outline + 变更日志
+- **多次对话完善**：每轮读库注入快照 → 用户给/改设定 → 整合落库 + 联动检查 + 进度回显（跨会话持久）
+- **内置能力**：generate_timeline（逻辑时间线）/ generate_character_card（人设标签+描写方向+禁忌）/ deduce_conflicts（欲望×性格×规则推演）/ build_relationship_graph / export_doc
+- **与现有协作**：产出可喂给 director/outline_planner/serial_engine
+- 本地多轮用 `get_local_graph()`（惰性 MemorySaver）
 
 ### director 图（一键串联导演）
 - 对话式导演：按阶段调用各 Agent（idea→world→character→outline→serial→package），关键节点向作者汇报确认

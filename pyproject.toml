@@ -23,7 +23,7 @@ requires = ["setuptools>=73.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["langgraph.templates.agent", "agent", "novel", "novel.nodes", "world_builder", "outline_planner", "character_builder", "serial_engine", "reader_simulator", "book_packager", "idea_generator", "fanqie_style", "director"]
+packages = ["langgraph.templates.agent", "agent", "novel", "novel.nodes", "world_builder", "outline_planner", "character_builder", "serial_engine", "reader_simulator", "book_packager", "idea_generator", "fanqie_style", "director", "setting_studio"]
 [tool.setuptools.package-dir]
 "langgraph.templates.agent" = "src/agent"
 "agent" = "src/agent"
@@ -38,6 +38,7 @@ packages = ["langgraph.templates.agent", "agent", "novel", "novel.nodes", "world
 "idea_generator" = "src/idea_generator"
 "fanqie_style" = "src/fanqie_style"
 "director" = "src/director"
+"setting_studio" = "src/setting_studio"
 
 
 [tool.setuptools.package-data]

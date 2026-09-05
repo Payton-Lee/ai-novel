@@ -13,7 +13,8 @@
     "reader_simulator": "./src/reader_simulator/graph.py:graph",
     "book_packager": "./src/book_packager/graph.py:graph",
     "idea_generator": "./src/idea_generator/graph.py:graph",
-    "director": "./src/director/graph.py:graph"
+    "director": "./src/director/graph.py:graph",
+    "setting_studio": "./src/setting_studio/graph.py:graph"
   },
   "env": ".env",
   "image_distro": "wolfi"
